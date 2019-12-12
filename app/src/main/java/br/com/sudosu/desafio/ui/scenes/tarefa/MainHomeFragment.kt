@@ -6,6 +6,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.*
+import android.widget.ScrollView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -94,9 +95,9 @@ class MainHomeFragment : BaseFragment(){
 
             with(tarefaMap) {
                 onCreate(mapViewBundle)
-                getMapAsync {
+                getMapAsync { map ->
                     MapsInitializer.initialize(requireContext())
-                    setMapLocation(it, tarefa?.latitude!!, tarefa.longitude!!)
+                    setMapLocation(map, tarefa?.latitude!!, tarefa.longitude!!)
                 }
 
                 recyclerComents.adapter = ComentarioAdapter(tarefa?.comentarios ?: emptyList())
@@ -130,6 +131,11 @@ class MainHomeFragment : BaseFragment(){
             viewModel.setLongetude(tarefa?.longitude)
 
         })
+        tarefaComents.setOnClickListener {
+            scroll.post {
+                scroll.fullScroll(View.FOCUS_DOWN)
+            }
+        }
 
         tarefaServico.setOnClickListener {
             findNavController().navigate(R.id.action_mainHomeFragment_to_servicoFragment)
@@ -160,15 +166,14 @@ class MainHomeFragment : BaseFragment(){
 
             val location = LatLng(latitude, longitude)
 
-            moveCamera(CameraUpdateFactory.newLatLngZoom(location, 20f))
+            moveCamera(CameraUpdateFactory.newLatLngZoom(location, 14f))
+
             mapType = GoogleMap.MAP_TYPE_NORMAL
-            setOnMapClickListener {
 
                 markerOptions = MarkerOptions().position(location)
-                marker = addMarker(markerOptions)
 
-                marker.title = "Teste"
-                marker.snippet = "Teste da descricao"
+                markerOptions.position(location)
+                marker = addMarker(markerOptions)
 
                 val uiSettings = uiSettings
 
@@ -181,7 +186,6 @@ class MainHomeFragment : BaseFragment(){
                 uiSettings.isTiltGesturesEnabled = false
                 uiSettings.isZoomGesturesEnabled = false
 
-            }
         }
     }
 
