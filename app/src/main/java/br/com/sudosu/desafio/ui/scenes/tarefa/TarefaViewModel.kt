@@ -5,10 +5,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import br.com.sudosu.desafio.CALL_PRMISSIONS
 import br.com.sudosu.desafio.DesafioApplication
+import br.com.sudosu.desafio.bussines_logic.tarefa.models.Comentario
 import br.com.sudosu.desafio.bussines_logic.tarefa.models.Tarefa
 import br.com.sudosu.desafio.bussines_logic.tarefa.services.TarefaServiceInterface
 import br.com.sudosu.desafio.bussines_logic.tarefa.services.TarefaServiceRest
-import br.com.sudosu.desafio.extensions.setValueAndNotify
 import br.com.sudosu.desafio.services.models.ServiceResponse
 import pub.devrel.easypermissions.EasyPermissions
 
@@ -28,25 +28,12 @@ class TarefaViewModel(
         var endereco: String? = null,
         var latitude: Double? = null,
         var longitude: Double? = null,
-        var comentarios: List<ComentarioViewState>? = emptyList()
-    )
-
-    data class ComentarioViewState(
-        var urlFoto: String? = null,
-        var nome: String? = null,
-        var nota: String? = null,
-        var titulo: String? = null,
-        var comentario: String? = null
+        var comentarios: List<Comentario>? = emptyList()
     )
 
     private val _tarefaViewState: MutableLiveData<TarefaViewState> =
         MutableLiveData(TarefaViewState())
     val tarefaViewState: LiveData<TarefaViewState>
-        get() = _tarefaViewState
-
-    private val _comentarioViewState: MutableLiveData<ComentarioViewState> =
-        MutableLiveData(ComentarioViewState())
-    val comentarioViewState: LiveData<TarefaViewState>
         get() = _tarefaViewState
 
     private val _grantedLocationPermission = MutableLiveData<Boolean>()

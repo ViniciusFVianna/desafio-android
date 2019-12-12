@@ -2,11 +2,8 @@ package br.com.sudosu.desafio.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.core.view.isVisible
 import androidx.navigation.findNavController
 import br.com.sudosu.desafio.R
-import br.com.sudosu.desafio.SharedPreferencesManager
-import br.com.sudosu.desafio.extensions.NavigationUIExtensions
 import br.com.sudosu.desafio.ui.fragments.BaseActivity
 
 class MainActivity : AppCompatActivity(), BaseActivity {

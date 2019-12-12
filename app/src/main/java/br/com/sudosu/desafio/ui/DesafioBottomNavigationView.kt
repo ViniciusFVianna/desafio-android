@@ -9,8 +9,6 @@ import android.widget.FrameLayout
 import androidx.annotation.IdRes
 import androidx.appcompat.view.SupportMenuInflater
 import androidx.appcompat.view.menu.MenuBuilder
-import androidx.core.view.isVisible
-import br.com.sudosu.desafio.R
 
 class DesafioBottomNavigationView : FrameLayout{
     lateinit var menu: Menu
