@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+    android:id="@+id/itemFoto"
+    android:layout_width="@dimen/size_60"
+    android:layout_height="@dimen/size_60"
+        android:background="@drawable/image_background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+    <TextView
+        android:id="@+id/itemName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vinicius vianna"
+        android:layout_marginStart="@dimen/size_10"
+        android:layout_marginTop="@dimen/size_10"
+        android:textSize="@dimen/text_size_12"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/desafio_yewllow"
+        app:layout_constraintStart_toEndOf="@id/itemFoto"
+        app:layout_constraintTop_toTopOf="@id/itemFoto"/>
+    <TextView
+        android:id="@+id/itemTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_10"
+        android:text="MUITO BOM!!!"
+        android:textSize="@dimen/text_size_14"
+        android:fontFamily="sans-serif-black"
+        android:textColor="@color/desafio_yewllow"
+        app:layout_constraintStart_toStartOf="@id/itemName"
+        app:layout_constraintTop_toBottomOf="@id/itemName"/>
+    <TextView
+        android:id="@+id/itemComent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_10"
+        android:text="Comentarioarioarioario"
+        android:textSize="@dimen/text_size_12"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/desafio_yewllow"
+        app:layout_constraintStart_toStartOf="@id/itemName"
+        app:layout_constraintTop_toBottomOf="@id/itemTitulo"/>
+    <RatingBar
+        android:id="@+id/itemNota"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:rating="2"
+        style="@style/CustomRatingBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/itemTitulo"
+        app:layout_constraintBottom_toBottomOf="@id/itemTitulo"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,11 +1,28 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/desafio_yewllow</item>
+        <item name="colorPrimaryDark">@color/desafio_yewllow</item>
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="CustomRatingBar" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/custom_rating</item>
+        <item name="android:minHeight">@dimen/size_10</item>
+        <item name="android:maxHeight">@dimen/size_20</item>
+        <item name="android:width">10dp</item>
+    </style>
+
+    <style name="TextoPadrao">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">@color/desafio_yewllow</item>
+    </style>
+
+    <style name="TextoNegrito">
+        <item name="android:fontFamily">sans-serif-black</item>
+        <item name="android:textColor">@color/desafio_yewllow</item>
     </style>
 
 </resources>

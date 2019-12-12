@@ -1,8 +1,13 @@
 package br.com.sudosu.desafio.extensions
 
+import android.os.Bundle
 import androidx.annotation.IdRes
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
+import androidx.navigation.ui.NavigationUI.onNavDestinationSelected
+import br.com.sudosu.desafio.ui.DesafioBottomNavigationView
+import br.com.sudosu.desafio.ui.MainActivity
+import java.lang.ref.WeakReference
 
 /**
  * Sets up a [BottomNavigationView] for use with a [NavController]. This will call
@@ -17,49 +22,50 @@ import androidx.navigation.NavDestination
  * selected item in the BottomNavigationView.
  */
 object NavigationUIExtensions {
-//    fun setupGlicoNavigationWithNavController(
-//        activity: MainActivity,
-//        bottomNavigationView: GlicoBottomNavigationView,
-//        navController: NavController
-//    ) {
-//
-//        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
-//            onNavDestinationSelected(
-//                item,
-//                navController
-//            )
-//        }
-//
-//        val weakReference = WeakReference(bottomNavigationView)
-//        navController.addOnDestinationChangedListener(
-//            object : NavController.OnDestinationChangedListener {
-//                override fun onDestinationChanged(
-//                    controller: NavController,
-//                    destination: NavDestination, arguments: Bundle?
-//                ) {
-//
-//                    if(!activity.isShowingBottomBar)
-//                        return
-//
-//                    val view = weakReference.get()
-//                    if (view == null) {
-//                        navController.removeOnDestinationChangedListener(this)
-//                        return
-//                    }
-//                    val menu = view.menu
-//                    var h = 0
-//                    val size = menu.size()
-//                    while (h < size) {
-//                        val item = menu.getItem(h)
-//                        if (matchDestination(destination, item.itemId)) {
-////                            item.isChecked = true
-//                            view.selectItem(item.itemId)
-//                        }
-//                        h++
-//                    }
-//                }
-//            })
-//    }
+    fun setupGlicoNavigationWithNavController(
+        activity: MainActivity,
+        bottomNavigationView: DesafioBottomNavigationView,
+
+        navController: NavController
+    ) {
+
+        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
+            onNavDestinationSelected(
+                item,
+                navController
+            )
+        }
+
+        val weakReference = WeakReference(bottomNavigationView)
+        navController.addOnDestinationChangedListener(
+            object : NavController.OnDestinationChangedListener {
+                override fun onDestinationChanged(
+                    controller: NavController,
+                    destination: NavDestination, arguments: Bundle?
+                ) {
+
+                    if(!activity.isShowingBottomBar)
+                        return
+
+                    val view = weakReference.get()
+                    if (view == null) {
+                        navController.removeOnDestinationChangedListener(this)
+                        return
+                    }
+                    val menu = view.menu
+                    var h = 0
+                    val size = menu.size()
+                    while (h < size) {
+                        val item = menu.getItem(h)
+                        if (matchDestination(destination, item.itemId)) {
+//                            item.isChecked = true
+                            view.selectItem(item.itemId)
+                        }
+                        h++
+                    }
+                }
+            })
+    }
 
     /**
      * Determines whether the given `destId` matches the NavDestination. This handles

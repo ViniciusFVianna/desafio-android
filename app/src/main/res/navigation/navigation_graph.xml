@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="br.com.sudosu.desafio.ui.scenes.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_mainHomeFragment"
+            app:destination="@id/mainHomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainHomeFragment"
+        android:name="br.com.sudosu.desafio.ui.scenes.tarefa.MainHomeFragment"
+        android:label="fragment_main_home"
+        tools:layout="@layout/fragment_main_home" >
+        <argument
+            android:name="tarefaId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_mainHomeFragment_to_servicoFragment"
+            app:destination="@id/servicoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/servicoFragment"
+        android:name="br.com.sudosu.desafio.ui.scenes.servicos.ServicoFragment"
+        android:label="fragment_servico"
+        tools:layout="@layout/fragment_servico" />
+</navigation>

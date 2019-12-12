@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/desafio_yewllow"
+    tools:context=".ui.scenes.tarefa.MainHomeFragment">
+
+    <include layout="@layout/layout_toolbar" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/size_60">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <View
+            android:id="@+id/bgWhite"
+            android:layout_width="@dimen/size_0"
+            android:layout_height="@dimen/size_0"
+            android:background="#f6f6f7"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/tarefaImg"
+            android:layout_width="@dimen/size_0"
+            android:layout_height="200dp"
+            android:src="@drawable/foto"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/bgWhite" />
+
+        <TextView
+            android:id="@+id/tarefaText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Lorem"
+            android:layout_marginStart="@dimen/size_20"
+            android:layout_marginTop="@dimen/size_10"
+            android:textAllCaps="true"
+            android:textSize="@dimen/text_size_20"
+            android:textColor="@color/desafio_yewllow"
+            app:layout_constraintEnd_toEndOf="@id/tarefaImg"
+            app:layout_constraintStart_toStartOf="@id/tarefaImg"
+            app:layout_constraintTop_toBottomOf="@id/tarefaImg" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="@dimen/size_0"
+                android:layout_height="@dimen/size_0"
+                android:layout_marginTop="@dimen/size_20"
+                app:layout_constraintTop_toBottomOf="@id/tarefaText"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/tarefaImg"
+                app:layout_constraintEnd_toEndOf="@id/tarefaImg">
+
+                <FrameLayout
+                    android:id="@+id/tarefaLigar"
+                    android:layout_width="@dimen/size_70"
+                    android:layout_height="@dimen/size_70"
+                    android:paddingTop="@dimen/size_10"
+                    android:paddingBottom="@dimen/size_10"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/tarefaServico">
+
+                    <ImageView
+                        android:layout_width="@dimen/size_40"
+                        android:layout_height="@dimen/size_40"
+                        android:src="@drawable/icon_ligar"
+                        android:layout_gravity="top|center"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/home_call"
+                        android:textSize="@dimen/text_size_12"
+                        android:textColor="@color/desafio_yewllow"
+                        android:layout_gravity="bottom|center"
+                        style="@style/TextoPadrao"/>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/tarefaServico"
+                    android:layout_width="@dimen/size_70"
+                    android:layout_height="@dimen/size_70"
+                    android:paddingTop="@dimen/size_10"
+                    android:paddingBottom="@dimen/size_10"
+                    app:layout_constraintTop_toTopOf="@id/tarefaLigar"
+                    app:layout_constraintBottom_toBottomOf="@id/tarefaLigar"
+                    app:layout_constraintStart_toEndOf="@id/tarefaLigar"
+                    app:layout_constraintEnd_toStartOf="@id/tarefaEndereco">
+                    <ImageView
+                        android:layout_width="@dimen/size_40"
+                        android:layout_height="@dimen/size_40"
+                        android:src="@drawable/icon_servicos"
+                        android:layout_gravity="top|center"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/home_services"
+                        android:textSize="@dimen/text_size_12"
+                        android:textColor="@color/desafio_yewllow"
+                        android:layout_gravity="bottom|center"
+                        style="@style/TextoPadrao"/>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/tarefaEndereco"
+                    android:layout_width="@dimen/size_70"
+                    android:layout_height="@dimen/size_70"
+                    android:paddingTop="@dimen/size_10"
+                    android:paddingBottom="@dimen/size_10"
+                    app:layout_constraintTop_toTopOf="@id/tarefaLigar"
+                    app:layout_constraintBottom_toBottomOf="@id/tarefaLigar"
+                    app:layout_constraintStart_toEndOf="@id/tarefaServico"
+                    app:layout_constraintEnd_toStartOf="@id/tarefaComents">
+                    <ImageView
+                        android:layout_width="@dimen/size_40"
+                        android:layout_height="@dimen/size_40"
+                        android:src="@drawable/icon_endereco"
+                        android:layout_gravity="top|center"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/home_adress"
+                        android:textSize="@dimen/text_size_12"
+                        android:textColor="@color/desafio_yewllow"
+                        android:layout_gravity="bottom|center"
+                        style="@style/TextoPadrao"/>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/tarefaComents"
+                    android:layout_width="@dimen/size_70"
+                    android:layout_height="@dimen/size_70"
+                    android:paddingTop="@dimen/size_10"
+                    android:paddingBottom="@dimen/size_10"
+                    app:layout_constraintTop_toTopOf="@id/tarefaLigar"
+                    app:layout_constraintBottom_toBottomOf="@id/tarefaLigar"
+                    app:layout_constraintStart_toEndOf="@id/tarefaEndereco"
+                    app:layout_constraintEnd_toStartOf="@id/tarefaFavorito">
+                    <ImageView
+                        android:layout_width="@dimen/size_40"
+                        android:layout_height="@dimen/size_40"
+                        android:src="@drawable/icon_comentario"
+                        android:layout_gravity="top|center"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/home_comments"
+                        android:textSize="@dimen/text_size_12"
+                        android:textColor="@color/desafio_yewllow"
+                        android:layout_gravity="bottom|center"
+                        style="@style/TextoPadrao"/>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/tarefaFavorito"
+                    android:layout_width="@dimen/size_70"
+                    android:layout_height="@dimen/size_70"
+                    android:paddingTop="@dimen/size_10"
+                    android:paddingBottom="@dimen/size_10"
+                    app:layout_constraintTop_toTopOf="@id/tarefaLigar"
+                    app:layout_constraintBottom_toBottomOf="@id/tarefaLigar"
+                    app:layout_constraintStart_toEndOf="@id/tarefaComents"
+                    app:layout_constraintEnd_toEndOf="parent">
+                    <ImageView
+                        android:layout_width="@dimen/size_40"
+                        android:layout_height="@dimen/size_40"
+                        android:src="@drawable/icon_favorito"
+                        android:layout_gravity="top|center"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/home_favorites"
+                        android:textSize="@dimen/text_size_12"
+                        android:textColor="@color/desafio_yewllow"
+                        android:layout_gravity="bottom|center"
+                        style="@style/TextoPadrao"/>
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/tarefaDesc"
+                    android:layout_width="@dimen/size_0"
+                    android:layout_height="wrap_content"
+                    tools:text="@string/home_desc"
+                    android:textSize="@dimen/text_size_12"
+                    android:layout_marginStart="@dimen/size_10"
+                    android:layout_marginEnd="@dimen/size_10"
+                    style="@style/TextoPadrao"
+                    app:layout_constraintStart_toStartOf="@id/tarefaLigar"
+                    app:layout_constraintEnd_toEndOf="@id/tarefaFavorito"
+                    app:layout_constraintTop_toBottomOf="@id/tarefaLigar"/>
+
+                <com.google.android.gms.maps.MapView
+                    android:id="@+id/tarefaMap"
+                    android:layout_width="@dimen/size_0"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="@dimen/size_10"
+                    app:layout_constraintStart_toStartOf="@id/tarefaDesc"
+                    app:layout_constraintEnd_toEndOf="@id/tarefaDesc"
+                    app:layout_constraintTop_toBottomOf="@id/tarefaDesc"/>
+                <TextView
+                    android:id="@+id/tarefaTextEnder"
+                    android:layout_width="@dimen/size_0"
+                    android:layout_height="wrap_content"
+                    tools:text="Endereco"
+                    android:paddingEnd="50dp"
+                    android:textColor="@color/desafio_wite"
+                    android:textSize="@dimen/text_size_12"
+                    android:background="@color/desafio_yewllow"
+                    android:textAlignment="textEnd"
+                    style="@style/TextoPadrao"
+                    app:layout_constraintStart_toStartOf="@id/tarefaMap"
+                    app:layout_constraintEnd_toEndOf="@id/tarefaMap"
+                    app:layout_constraintBottom_toBottomOf="@id/tarefaMap"/>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerComents"
+                    android:layout_width="@dimen/size_0"
+                    android:layout_height="@dimen/size_0"
+                    tools:listitem="@layout/cell_coments"
+                    app:layout_constraintStart_toStartOf="@id/tarefaLigar"
+                    app:layout_constraintEnd_toEndOf="@id/tarefaFavorito"
+                    app:layout_constraintTop_toBottomOf="@id/tarefaMap"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+                <ImageView
+                    android:layout_width="@dimen/size_20"
+                    android:layout_height="@dimen/size_20"
+                    android:src="@drawable/icon_endereco"
+                    android:background="@drawable/image_background"
+                    android:layout_marginEnd="@dimen/size_20"
+                    android:layout_marginBottom="6dp"
+                    app:layout_constraintEnd_toEndOf="@id/tarefaTextEnder"
+                    app:layout_constraintBottom_toBottomOf="@id/tarefaTextEnder"
+                    app:layout_constraintTop_toTopOf="@id/tarefaTextEnder"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/tarefaLogo"
+            android:layout_width="@dimen/size_80"
+            android:layout_height="@dimen/size_80"
+            android:background="@drawable/image_background"
+            android:layout_marginEnd="@dimen/size_26"
+            app:layout_constraintEnd_toEndOf="@id/tarefaImg"
+            app:layout_constraintBottom_toBottomOf="@id/tarefaImg"
+            app:layout_constraintTop_toBottomOf="@id/tarefaImg"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
